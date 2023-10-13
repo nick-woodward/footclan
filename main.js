@@ -5,6 +5,7 @@ const getLeagueRosters = require('./getLeagueRosters.js')
 function refreshData(){
   const week = 5
   console.log(`getting data for week #${week}`)
+  console.log('version 1')
   getFootclanPyramidLeagues(week)
     .then(console.log)
 }
