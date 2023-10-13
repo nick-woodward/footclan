@@ -1,9 +1,29 @@
+
+
+
 function refreshData(){
   const week = 5
   console.log(`getting data for week #${week}`)
   console.log('version 6')
   getFootclanPyramidLeagues(week)
-    .then(console.log)
+    .then(data => {
+      const table = document.getElementById("myTable");
+
+      data.map(d => {
+        console.log({d})
+        // Create an empty <tr> element and add it to the 1st position of the table:
+        var row = table.insertRow();
+
+        // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+
+        // Add some text to the new cells:
+        cell1.innerHTML = d["Username"];
+        cell2.innerHTML = d["Total Points"];
+      })
+      console.log({data})
+    })
 }
 
 async function getFootclanPyramidLeagues(week){
