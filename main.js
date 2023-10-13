@@ -1,7 +1,7 @@
 function refreshData(){
   const week = 5
   console.log(`getting data for week #${week}`)
-  console.log('version 5')
+  console.log('version 6')
   getFootclanPyramidLeagues(week)
     .then(console.log)
 }
@@ -68,7 +68,7 @@ async function getLeagueUsers(leagueId){
   const users = await response.json()
   console.log({users})
 
-  return response.body
+  return users
 }
 
 async function getLeagueRosters(leagueId){
@@ -77,7 +77,7 @@ async function getLeagueRosters(leagueId){
   const rosters = await response.json()
   console.log({rosters})
 
-  return response.body
+  return rosters
 }
 
 async function getLeagueMatchups(leagueId, week){
@@ -86,5 +86,5 @@ async function getLeagueMatchups(leagueId, week){
   const matchups = await response.json()
   console.log({matchups})
 
-  return response.body
+  return matchups
 }
