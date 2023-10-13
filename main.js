@@ -1,7 +1,7 @@
 function refreshData(){
   const week = 5
   console.log(`getting data for week #${week}`)
-  console.log('version 2')
+  console.log('version 3')
   getFootclanPyramidLeagues(week)
     .then(console.log)
 }
@@ -25,9 +25,7 @@ async function getFootclanPyramidLeagues(week){
 
   const leagueUserPoints = await Promise.all(
     leagues.map(async league => {
-      const getLeagueRosters = require('./getLeagueRosters.js')
       const leagueRosters = await getLeagueRosters(league)
-      const getLeagueMatchups = require('./getLeagueMatchups.js')
       const matchups = await getLeagueMatchups(league, week)
 
       const pointTuples = matchups.map(matchup => {
@@ -65,13 +63,25 @@ function roundToDecimalPlaces(number, decimalPlaces){
 }
 
 async function getLeagueUsers(leagueId){
-  const axios = require('axios')
-  const response = await axios({
-    method: 'GET',
-    url: `https://api.sleeper.app/v1/league/${leagueId}/users`,
-  })
+  const url = `https://api.sleeper.app/v1/league/${leagueId}/users`
+  const response = await fetch(url)
+  console.log({response})
 
   return response.data
 }
 
+async function getLeagueRosters(leagueId){
+  const url = `https://api.sleeper.app/v1/league/${leagueId}/rosters`
+  const response = await fetch(url)
+  console.log({response})
 
+  return response.data
+}
+
+async function getLeagueMatchups(leagueId, week){
+  const url = `https://api.sleeper.app/v1/league/${leagueId}/matchups/${week}`
+  const response = await fetch(url)
+  console.log({response})
+
+  return response.data
+}
