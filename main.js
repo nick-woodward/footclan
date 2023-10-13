@@ -23,7 +23,7 @@ async function getFootclanPyramidLeagues(week){
     '968958115968344064'
   ]
 
-  const leagueUsers = await Promise.all(leagues.map(getLeagueUsers))
+  const leagueUsers = await Promise.all(leagues.map(l => getLeagueUsers(l)))
   const allUsers = leagueUsers.flat()
 
   const leagueUserPoints = await Promise.all(
