@@ -1,6 +1,6 @@
+const axios = require('axios')
 const getLeagueMatchups = require('./getLeagueMatchups.js')
 const getLeagueRosters = require('./getLeagueRosters.js')
-const getLeagueUsers = require('./getLeagueUsers.js')
 
 function refreshData(){
   const week = 5
@@ -64,4 +64,14 @@ function roundToDecimalPlaces(number, decimalPlaces){
   const rounded = Math.round((number + Number.EPSILON) * multiplier) / multiplier
   return rounded
 }
+
+async function getLeagueUsers(leagueId){
+  const response = await axios({
+    method: 'GET',
+    url: `https://api.sleeper.app/v1/league/${leagueId}/users`,
+  })
+
+  return response.data
+}
+
 
