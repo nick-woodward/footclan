@@ -1,7 +1,7 @@
 function refreshData(){
   const week = 5
   console.log(`getting data for week #${week}`)
-  console.log('version 3')
+  console.log('version 4')
   getFootclanPyramidLeagues(week)
     .then(console.log)
 }
@@ -65,23 +65,23 @@ function roundToDecimalPlaces(number, decimalPlaces){
 async function getLeagueUsers(leagueId){
   const url = `https://api.sleeper.app/v1/league/${leagueId}/users`
   const response = await fetch(url)
-  console.log({response})
+  console.log({response:response.body})
 
-  return response.data
+  return response.body
 }
 
 async function getLeagueRosters(leagueId){
   const url = `https://api.sleeper.app/v1/league/${leagueId}/rosters`
   const response = await fetch(url)
-  console.log({response})
+  console.log({response:response.body})
 
-  return response.data
+  return response.body
 }
 
 async function getLeagueMatchups(leagueId, week){
   const url = `https://api.sleeper.app/v1/league/${leagueId}/matchups/${week}`
   const response = await fetch(url)
-  console.log({response})
+  console.log({response:response.body})
 
-  return response.data
+  return response.body
 }
