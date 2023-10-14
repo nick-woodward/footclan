@@ -1,4 +1,4 @@
-function selectDefaultWeek(){
+async function selectDefaultWeek(){
   const el = document.getElementById("weekSelect");
   const weeks = [1,2,3,4,5,6,7,8,9,10,11,12,13,14]
   weeks.map(week => {
@@ -8,7 +8,7 @@ function selectDefaultWeek(){
     el.add(option);
   })
 
-  const defaultWeek = 2
+  const defaultWeek = await getCurrentWeek()
   el.value = defaultWeek
 
   refreshData()
@@ -95,7 +95,8 @@ async function getFootclanPyramidLeagues(week){
 function roundToDecimalPlaces(number, decimalPlaces){
   const multiplier = Math.pow(10, decimalPlaces)
   const rounded = Math.round((number + Number.EPSILON) * multiplier) / multiplier
-  return rounded
+
+  return rounded > 0 ? rounded.toFixed(2) : 0
 }
 
 async function getLeagueUsers(leagueId){
@@ -123,4 +124,12 @@ async function getLeagueMatchups(leagueId, week){
   console.log({matchups})
 
   return matchups
+}
+
+async function getCurrentWeek(){
+  const url = `https://api.sleeper.app/v1/state/nfl`
+  const response = await fetch(url)
+  const state = await response.json()
+
+  return state.week
 }
