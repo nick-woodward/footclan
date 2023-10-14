@@ -1,13 +1,29 @@
+function selectDefaultWeek(){
+  const el = document.getElementById("weekSelect");
+  const weeks = [1,2,3,4,5,6,7,8,9,10,11,12,13,14]
+  weeks.map(week => {
+    const option = document.createElement("option");
+    option.text = `Week ${week}`;
+    option.value = week;
+    el.add(option);
+  })
 
+  const defaultWeek = 2
+  el.value = defaultWeek
 
+  refreshData()
+}
 
 function refreshData(){
-  const week = 5
+  const e = document.getElementById("weekSelect");
+  const week = e.value
   console.log(`getting data for week #${week}`)
-  console.log('version 6')
+
+  const table = document.getElementById("myTable").getElementsByTagName('tbody')[0];
+  table.innerHTML = ''
+
   getFootclanPyramidLeagues(week)
     .then(data => {
-      const table = document.getElementById("myTable");
 
       data.map(d => {
         console.log({d})

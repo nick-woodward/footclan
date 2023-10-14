@@ -1,13 +1,26 @@
-<body onload="refreshData()">
-  <script type="text/javascript" src="main.js" defer></script>
-  <table id="myTable">
-    <tr>
-      <td>
-        <b> Username </b>
-      </td>
-      <td>
-        <b> Total Points </b>
-      </td>
-    </tr>
-  </table>
-</body>
+<html>
+  <head>
+    <link rel="stylesheet" href="index.css">
+    <script type="text/javascript" src="main.js" defer></script>
+  </head>
+  <body onload="selectDefaultWeek()">
+    <h1>Footclan Pyramid of Greatness Weekly Results</h1>
+    Select Week
+    <select id="weekSelect" onChange="refreshData()">
+    </select>
+    <br/>
+    <br/>
+    <table id="myTable">
+      <tr>
+        <td>
+          <b> Username </b>
+        </td>
+        <td>
+          <b> Total Points </b>
+        </td>
+      </tr>
+      <tbody>
+      </tbody>
+    </table>
+  </body>
+</html>
