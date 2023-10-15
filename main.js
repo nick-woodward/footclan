@@ -241,7 +241,6 @@ async function getLeague(leagueId){
 }
 
 function calculateProjection(projectedStats, playerStats, scoreSettings){
-  console.log({playerStats})
   const stats = playerStats.gp ? playerStats : projectedStats
 
   let score = 0
@@ -250,9 +249,5 @@ function calculateProjection(projectedStats, playerStats, scoreSettings){
     score += stats[stat] * multiplier;
   }
   return score;
-}
-
-async function getPlayerData(){
-  return players()
 }
 
