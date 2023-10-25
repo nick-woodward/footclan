@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="index.css">
+    <!-- <script type="text/javascript" src="playersArray.js"></script> -->
+    <script type="text/javascript" src="competitorFinder.js" defer></script>
+  </head>
+  <body onload="setupFormSubmission()">
+    <h1>Competitor Finder</h1>
+    Enter Username
+    <input id="userName" type="text"></input>
+    <button onClick="loadCompetitors()"> Search </button>
+    <br/>
+    <br/>
+    <table id="competitorsTable">
+      <thead>
+        <tr>
+          <td>
+          </td>
+          <td>
+            <b> Username </b>
+          </td>
+          <td>
+            <b> Number of Leagues with you </b>
+          </td>
+          <td>
+            <b> Leagues with you </b>
+          </td>
+          <td>
+            <b> Number of Total Managed Leagues </b>
+          </td>
+          <td>
+            <b> Number of Best Ball Leagues </b>
+          </td>
+        </tr>
+      <thead>
+        <tbody>
+        </tbody>
+    </table>
+    <br/>
+    <br/>
+    Sleeper Limits the amount of data you can get per minute. If it doesn't
+    load, wait a minute and try again
+  </body>
+</html>
