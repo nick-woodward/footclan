@@ -1,6 +1,6 @@
 async function selectDefaultWeek(){
   const el = document.getElementById("weekSelect");
-  const weeks = [1,2,3,4,5,6,7,8,9,10,11,12,13,14]
+  const weeks = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]
   weeks.map(week => {
     const option = document.createElement("option");
     option.text = `Week ${week}`;
