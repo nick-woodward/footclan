@@ -34,12 +34,14 @@ function refreshData(){
         var cell2 = row.insertCell(1);
         var cell3 = row.insertCell(2);
         var cell4 = row.insertCell(3);
+        var cell5 = row.insertCell(4);
 
         // Add some text to the new cells:
         cell1.innerHTML = d["number"];
         cell2.innerHTML = d["Username"];
         cell3.innerHTML = d["Total Points"];
         cell4.innerHTML = d["Projected Points"];
+        cell5.innerHTML = d["League"];
       })
       return data
     })
@@ -137,6 +139,7 @@ async function getFootclanPyramidLeagues(week){
         projection: matchup.projection,
         totalPoints: roundToDecimalPlaces(matchup.points, 2),
         userName: matchup.userName,
+        leagueName: league.name,
       }
     })
 
@@ -173,6 +176,7 @@ function formatOutput(leagueUserPoints){
         'Username': userPoints.userName,
         'Total Points': userPoints.totalPoints,
         'Projected Points': userPoints.projection,
+        'League': userPoints.leagueName,
         number: +1 + +index,
       }
     })
