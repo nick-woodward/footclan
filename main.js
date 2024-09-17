@@ -106,10 +106,12 @@ async function getFootclanPyramidLeagues(week){
     )
   )
   
+  console.log(leagues)
   console.log(starterProjections)
   // decorate with matchup projections
   leagues = leagues.map(league => {
     league.matchups = league.matchups.map(matchup => {
+      console.log({matchup})
       matchup.projection = calculateTeamProjection(matchup.starters, starterProjections)
       return matchup
     })
