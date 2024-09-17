@@ -67,6 +67,7 @@ async function getFootclanPyramidLeagues(week){
     league.users = leagueUsers
     return league
   }))
+  console.log('loaded users')
 
   // decorate with rosters
   leagues = await Promise.all(leagues.map(async league => {
@@ -74,6 +75,7 @@ async function getFootclanPyramidLeagues(week){
     league.rosters = leagueRosters
     return league
   }))
+  console.log('loaded rosters')
 
   // decorate with matchups
   leagues = await Promise.all(leagues.map(async league => {
@@ -81,6 +83,8 @@ async function getFootclanPyramidLeagues(week){
     league.matchups = matchups
     return league
   }))
+  console.log('loaded matchups')
+  console.log(leagues)
 
   const allStarterIds = leagues
         .flatMap(league => league.matchups)
@@ -102,6 +106,7 @@ async function getFootclanPyramidLeagues(week){
     )
   )
   
+  console.log(starterProjections)
   // decorate with matchup projections
   leagues = leagues.map(league => {
     league.matchups = league.matchups.map(matchup => {
@@ -110,6 +115,7 @@ async function getFootclanPyramidLeagues(week){
     })
     return league
   })
+  console.log('loaded projections')
 
   // decorate with matchup usernames
   leagues = leagues.map(league => {
@@ -120,6 +126,7 @@ async function getFootclanPyramidLeagues(week){
     })
     return league
   })
+  console.log('loaded matchup usernames')
 
   // decorate with point tuples
   leagues = await Promise.all(leagues.map(async league => {
@@ -135,6 +142,7 @@ async function getFootclanPyramidLeagues(week){
 
     return league
   }))
+  console.log('loaded point tuples')
 
   const leagueUserPoints = leagues.flatMap(l => l.pointTuples)
   const userPoints = formatOutput(leagueUserPoints)
