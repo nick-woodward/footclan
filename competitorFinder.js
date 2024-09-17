@@ -76,7 +76,7 @@ async function getUser(userName){
 }
 
 async function getLeagues(userId){
-  const url = `https://api.sleeper.app/v1/user/${userId}/leagues/nfl/2023`
+  const url = `https://api.sleeper.app/v1/user/${userId}/leagues/nfl/2024`
   const response = await fetch(url)
   const leagues = await response.json()
 

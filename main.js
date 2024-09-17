@@ -207,7 +207,7 @@ async function getCurrentWeek(){
 }
 
 async function getPlayerStatsByWeek(playerId, week){
-  const season  = 2023
+  const season  = 2024
   const url = `https://api.sleeper.com/stats/nfl/player/${playerId}?season_type=regular&season=${season}&grouping=week`
   const response = await fetch(url)
   const stats = await response.json()
@@ -220,7 +220,7 @@ async function getPlayerStatsByWeek(playerId, week){
 }
 
 async function getPlayerProjectionByWeek(playerId, week){
-  const season  = 2023
+  const season  = 2024
   const url = `https://api.sleeper.com/projections/nfl/player/${playerId}?season_type=regular&season=${season}&grouping=week`
   const response = await fetch(url)
   const projections = await response.json()
